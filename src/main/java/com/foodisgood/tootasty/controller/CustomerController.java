@@ -24,11 +24,9 @@ public class CustomerController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<CustomerResponse> loginCustoemr(@RequestBody @Valid LoginRequest request) {
-        CustomerResponse response = customerService.loginCustomer(request.email(), request.password());
-        return ResponseEntity.ok(response);
+    public ResponseEntity<String> loginCustomer(@RequestBody @Valid LoginRequest request) {
+        return ResponseEntity.ok(customerService.loginCustomer(request.email(), request.password()));
     }
-
 
     @GetMapping("/getData/{email}")
     public ResponseEntity<CustomerResponse> getData(@PathVariable("email") String email) {
@@ -36,3 +34,12 @@ public class CustomerController {
     }
 
 }
+
+/*
+{
+    "first_name":"Jethalal",
+    "last_name":"Gada",
+    "email":"jetha@gmail.com",
+    "password":"jethiya"
+}
+*/
