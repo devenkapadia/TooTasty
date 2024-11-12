@@ -9,9 +9,12 @@ import java.net.PasswordAuthentication;
 @Service
 @RequiredArgsConstructor
 public class EncryptionService {
-    private  final PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
 
-    public String encryptPassword(String password) {return passwordEncoder.encode(password);}
+    public String encode(String password) {
+        return passwordEncoder.encode(password);
+    }
 
-    public boolean verifyPassword(String password, String encryptedPassword) {return passwordEncoder.matches(password, encryptedPassword);}
-}
+    public boolean validates(String password, String encodedPassword) {
+        return passwordEncoder.matches(password, encodedPassword);
+    }}
